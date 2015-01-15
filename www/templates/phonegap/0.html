@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-</head>
-<body>
-<h3>Accelerometer Data</h3>
-<div><pre>{{ accElement }}</pre></div>
-<button class="button button-block button-balanced" ng-click="startWatch()">Start</button>
-<button class="button button-block button-assertive" ng-click="stopWatch()">Stop</button>
-</body>
+	<head>
+		<style>
+		div#dot
+		{
+			border-radius: 14px;
+			width: 25px;
+			height: 25px;
+			background: #ff0000;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			display: none;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<h3>Accelerometer Data</h3>
+		
+		<div align="center">
+			<button class="button button-balanced" style="width:45%" ng-click="startWatch()">Start</button>
+			<button class="button button-assertive" style="width:45%" ng-click="stopWatch()">Stop</button>
+		</div>
+		
+		<div><pre>{{ accElement }}</pre></div>
+		
+		<div id="dot"></div>
+	</body>
 </html>
