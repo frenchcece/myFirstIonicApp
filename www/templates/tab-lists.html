@@ -1,0 +1,12 @@
+<ion-view view-title="PhoneGap Components">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="list in lists" type="item-text-wrap" href="#/tab/lists/{{list.id}}">
+        <i class="icon ion-bookmark" style="position:relative; float:left;"></i>
+        <h2>{{list.name}}</h2>
+        <p>{{list.desc}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

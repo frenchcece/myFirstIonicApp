@@ -1,0 +1,8 @@
+/* Empty. Add your own CSS if you like */
+
+.scroll-content {
+  background-image:url("../img/backgroundimage.png");
+}
+  
+.toggle input:checked + .track .handle {
+  background-color: white; }
