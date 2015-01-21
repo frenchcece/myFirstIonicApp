@@ -97,6 +97,60 @@ angular.module('starter.services', [])
 })
 
 
+
+.factory('Ranks', function($http, $q) {
+	// web service that returns a JSON array
+    var webservice_url = "http://www.dupuyworld.com/ncaafootball/cfc/footballdao.cfc";
+   
+    return {
+	    getRanking : function(){
+	    	var deferred = $q.defer();
+	    	
+		    	// $http returns a promise, which has a then function, which also returns a promise
+		    	$http.get(webservice_url+"?method=getaptop25teams&season=2014")
+		        	.then(
+		       		//handle success
+		        	function (response) {
+		            // The then function here is an opportunity to modify the response
+		            //console.log(response.data);
+		            // The return value gets picked up by the then in the controller.
+		            return deferred.resolve(response.data);
+		        	},
+					//handle failure
+					function(error){
+						console.log('error getting web service:'+error.message);
+					});
+
+	         // Return the promise to the controller
+	         return deferred.promise;
+	    },
+	    getTeamStats : function(teamid){ 	
+	    	var deferred = $q.defer();
+	    	
+	    	// $http returns a promise, which has a then function, which also returns a promise
+	    	$http.get(webservice_url+"?method=getteamstatsjsonformat&season=2014&teamid="+teamid)
+	        	.then(
+	       		//handle success
+	        	function (response) {
+	            // The then function here is an opportunity to modify the response
+	            console.log(response.data);
+	            // The return value gets picked up by the then in the controller.
+	            return deferred.resolve(response.data);
+	        	},
+				//handle failure
+				function(error){
+					console.log('error getting web service:'+error.message);
+				});
+
+         // Return the promise to the controller
+         return deferred.promise;
+	    }
+    }    
+    
+return null;
+})
+
+
 /**
  * A simple example service that returns some data.
  */

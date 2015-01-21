@@ -86,7 +86,27 @@ angular.module('starter', ['ngCordova', 'ionic', 'starter.controllers', 'starter
         }
       }
     })
+    
+  .state('tab.ranks', {
+      url: '/ranks',
+      views: {
+        'tab-ranks': {
+          templateUrl: 'templates/tab-ranks.html',
+          controller: 'RanksCtrl'
+        }
+      }
+    })
+    .state('tab.rank-detail', {
+      url: '/team/:teamid',
+      views: {
+        'tab-ranks': {
+          templateUrl: 'templates/rank-detail.html',
+          controller: 'RankDetailCtrl'
+        }
+      }
+    })
 
+ 
   .state('tab.friends', {
       url: '/friends',
       views: {

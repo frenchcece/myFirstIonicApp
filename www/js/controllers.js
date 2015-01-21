@@ -100,6 +100,38 @@ angular.module('starter.controllers', [])
 
 })
 
+
+.controller('RanksCtrl', function($scope, $http, Ranks) {
+	Ranks.getRanking().then(
+			//handle success
+			function(response){
+				$scope.ranks = standardJsonFormat(response);
+				//console.log($scope.ranks);
+				//console.log($scope.ranks[0].teamid);
+				},
+				//handle failure
+				function(error){
+					console.log('error getting web service:'+error.message);
+				});
+	
+	
+
+})
+
+.controller('RankDetailCtrl', function($scope, $stateParams, Ranks) {
+	Ranks.getTeamStats($stateParams.teamid).then(
+			//handle success
+			function(response){
+				$scope.stats = standardJsonFormat(response);
+				console.log($scope.stats);
+				
+				},
+				//handle failure
+				function(error){
+					console.log('error getting web service:'+error.message);
+				});
+})
+
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {

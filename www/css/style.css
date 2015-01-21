@@ -6,3 +6,19 @@
   
 .toggle input:checked + .track .handle {
   background-color: white; }
+
+table, th, td{
+	border-collapse: collapse;
+	padding:3px;
+	border: 1px solid #91AA9D;
+}
+  
+table tr:nth-child(odd){
+  background-color: #91AA9D;
+  }
+
+table tr:nth-child(even){
+  background-color: #FCFFF5;
+  }
+  
+  
